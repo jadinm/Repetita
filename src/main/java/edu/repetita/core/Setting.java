@@ -97,8 +97,16 @@ public class Setting {
 	    this.config = newConfig;
     }
 
+	public void setSRMaxLength(int srMaxLength) {
+		this.config.setSRMaxLength(srMaxLength);
+	}
+
     public void setSRPaths(SRPaths paths) {
         this.config.setSRPaths(paths);
+    }
+
+    public int getSRMaxLength() {
+    	return this.config.getSRMaxLength();
     }
 
     public SRPaths getSRPaths() {

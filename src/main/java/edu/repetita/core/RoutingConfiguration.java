@@ -5,7 +5,16 @@ import edu.repetita.paths.SRPaths;
 
 public class RoutingConfiguration {
     private SRPaths srpaths;
+    private int srMaxLength = 15; // FIXME Hardcoded
     private ExplicitPaths explicitPaths;
+
+    public int getSRMaxLength() {
+        return this.srMaxLength;
+    }
+
+    public void setSRMaxLength(int srMaxLength) {
+        this.srMaxLength = srMaxLength;
+    }
 
     public SRPaths getSRPaths() {
         return this.srpaths;

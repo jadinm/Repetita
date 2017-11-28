@@ -159,6 +159,9 @@ public class Topology {
     public int getEdgeId(String edgeLabel){
         return Arrays.asList(this.edgeLabel).indexOf(edgeLabel);
     }
+    public int getNodeId(String nodeLabel){
+        return Arrays.asList(this.nodeLabel).indexOf(nodeLabel);
+    }
 
     public Topology removeUndirectedEdge(int edgeId){
         HashMap<Integer,Integer> mapEdges = new HashMap<>();

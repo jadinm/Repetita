@@ -12,8 +12,19 @@
 # - optimization objective    An integer indicating the solver objective among {0 for 'undefined'; 1 for 'minimize max link utilization'}
 # 
 # Implemented optimization effect
+# - setSRPaths                Sets SR paths (i.e., list of intermediate nodes labels separated by a '-')from the output of the run command (the key field is the identifier of a demand, the value field is the SR path to be set for the given demand)
 # - setLinkWeights            Changes IGP link weights from the output of the run command (the key field is the identifier of a link, the value field is the new weight to be set on the given link)
 # - setExplicitPaths          Sets explicit paths (e.g., tunnels) from the output of the run command (the key field is the identifier of a demand, the value field is the explicit path to be set for the given demand)
+
+[SRMultiCommodityFlow]
+name = SRMultiCommodityFlow
+run command = java -jar external_solvers/SR-MIP.jar $TOPOFILE $DEMANDFILE $OUTFILE
+gettime command = cat $OUTFILE | grep 'execution time' | awk -v FS=': ' '{print $2}'
+optimization effect = setSRPaths
+field separator = ' '
+key field = 0
+value field = 1
+optimization objective = 0
 
 [compute_random_paths.py]
 name = randomExplicitPaths
